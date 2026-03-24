@@ -1,0 +1,29 @@
+---
+// Add partnership logo filenames to public/images/clients/ and list them here
+const partners: string[] = [
+  // 'partner1.png',
+  // 'partner2.png',
+];
+---
+
+<section class="py-24 bg-brand-dark">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 uppercase tracking-wider">
+      Partnerships
+    </h2>
+
+    {partners.length > 0 ? (
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
+        {partners.map((logo) => (
+          <img
+            src={`/images/clients/${logo}`}
+            alt="Partner"
+            class="h-12 object-contain opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+          />
+        ))}
+      </div>
+    ) : (
+      <p class="text-center text-brand-gray">Logos de partners por agregar</p>
+    )}
+  </div>
+</section>

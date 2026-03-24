@@ -1,0 +1,30 @@
+---
+const locations = [
+  { city: 'Ciudad de Mexico', country: 'Mexico' },
+  { city: 'Santiago', country: 'Chile' },
+  { city: 'Buenos Aires', country: 'Argentina' },
+  { city: 'Bogota', country: 'Colombia' },
+  { city: 'Montevideo', country: 'Uruguay' },
+  { city: 'Lima', country: 'Peru' },
+  { city: 'Quito', country: 'Ecuador' },
+];
+---
+
+<section class="py-24 bg-brand-dark">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 uppercase tracking-wider">
+      Con presencia en
+    </h2>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 text-center">
+      {locations.map((loc) => (
+        <div class="group">
+          <p class="text-xl font-semibold group-hover:text-brand-accent transition-colors">
+            {loc.city}
+          </p>
+          <p class="text-brand-gray text-sm mt-1">{loc.country}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

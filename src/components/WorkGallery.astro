@@ -1,0 +1,40 @@
+---
+// Add gallery items — each links to an Instagram post
+const works: { image: string; url: string; title: string }[] = [
+  // { image: '/images/gallery/work1.jpg', url: 'https://instagram.com/p/...', title: 'Campaign name' },
+];
+---
+
+<section class="py-24 bg-brand-black">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 uppercase tracking-wider">
+      Our Work
+    </h2>
+
+    {works.length > 0 ? (
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {works.map((work) => (
+          <a
+            href={work.url}
+            target="_blank"
+            rel="noopener"
+            class="group relative aspect-square overflow-hidden rounded-lg"
+          >
+            <img
+              src={work.image}
+              alt={work.title}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors flex items-center justify-center">
+              <span class="text-white opacity-0 group-hover:opacity-100 transition-opacity font-medium">
+                {work.title}
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    ) : (
+      <p class="text-center text-brand-gray">Portfolio por agregar</p>
+    )}
+  </div>
+</section>
