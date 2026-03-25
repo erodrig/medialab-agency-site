@@ -1,50 +1,57 @@
 ---
-// Set the API Gateway URL after deploying AgencyContactStack
 const apiUrl = import.meta.env.PUBLIC_CONTACT_API_URL || '';
 ---
 
 <section id="contacto" class="py-24 bg-brand-black">
-  <div class="max-w-2xl mx-auto px-6">
-    <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 uppercase tracking-wider">
-      Contacto
-    </h2>
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row gap-12 items-center">
+      <!-- Contact Form -->
+      <div class="flex-1 w-full">
+        <form id="contact-form" class="space-y-4">
+          <div>
+            <label class="block text-xs font-medium uppercase tracking-wider mb-1">Nombre *</label>
+            <input
+              type="text"
+              name="name"
+              required
+              class="w-full bg-brand-dark border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-brand-accent transition-colors"
+            />
+          </div>
+          <div>
+            <label class="block text-xs font-medium uppercase tracking-wider mb-1">E-mail *</label>
+            <input
+              type="email"
+              name="email"
+              required
+              class="w-full bg-brand-dark border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-brand-accent transition-colors"
+            />
+          </div>
+          <div>
+            <label class="block text-xs font-medium uppercase tracking-wider mb-1">Mensaje *</label>
+            <textarea
+              name="message"
+              rows="4"
+              required
+              class="w-full bg-brand-dark border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-brand-accent transition-colors resize-none"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="bg-brand-accent text-white px-8 py-3 text-sm font-semibold uppercase tracking-wider rounded hover:bg-red-700 transition-colors"
+          >
+            Enviar
+          </button>
+          <p id="form-status" class="text-center text-sm hidden"></p>
+        </form>
+      </div>
 
-    <form id="contact-form" class="space-y-6">
-      <div>
-        <input
-          type="text"
-          name="name"
-          placeholder="Nombre"
-          required
-          class="w-full bg-brand-dark border border-gray-700 rounded px-4 py-3 text-white placeholder-brand-gray focus:outline-none focus:border-brand-accent transition-colors"
-        />
+      <!-- CTA Heading -->
+      <div class="flex-1 text-center md:text-left">
+        <h2 class="text-3xl md:text-5xl font-black uppercase tracking-wider leading-tight text-brand-accent">
+          Empieza hoy mismo tu campana con influencers
+        </h2>
       </div>
-      <div>
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          required
-          class="w-full bg-brand-dark border border-gray-700 rounded px-4 py-3 text-white placeholder-brand-gray focus:outline-none focus:border-brand-accent transition-colors"
-        />
-      </div>
-      <div>
-        <textarea
-          name="message"
-          placeholder="Mensaje"
-          rows="5"
-          required
-          class="w-full bg-brand-dark border border-gray-700 rounded px-4 py-3 text-white placeholder-brand-gray focus:outline-none focus:border-brand-accent transition-colors resize-none"
-        ></textarea>
-      </div>
-      <button
-        type="submit"
-        class="w-full bg-brand-accent text-white py-4 text-sm font-semibold uppercase tracking-wider rounded hover:bg-red-700 transition-colors"
-      >
-        Enviar
-      </button>
-      <p id="form-status" class="text-center text-sm hidden"></p>
-    </form>
+    </div>
   </div>
 </section>
 
@@ -58,7 +65,6 @@ const apiUrl = import.meta.env.PUBLIC_CONTACT_API_URL || '';
     const data = Object.fromEntries(formData);
 
     if (!apiUrl) {
-      // Fallback to mailto if API not configured
       window.location.href = `mailto:hello@medialab.agency?subject=Contacto desde web - ${data.name}&body=${data.message}`;
       return;
     }

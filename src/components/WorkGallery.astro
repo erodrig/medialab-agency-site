@@ -1,40 +1,38 @@
 ---
-// Add gallery items — each links to an Instagram post
-const works: { image: string; url: string; title: string }[] = [
-  // { image: '/images/gallery/work1.jpg', url: 'https://instagram.com/p/...', title: 'Campaign name' },
+const works = [
+  { image: '/images/gallery/work1.jpg', url: 'https://www.instagram.com/p/DNg7e5DRz3M/' },
+  { image: '/images/gallery/work2.png', url: 'https://www.instagram.com/p/DNWtxzaxHQs/?img_index=1' },
+  { image: '/images/gallery/work3.png', url: 'https://www.instagram.com/p/DNZQXwzxGLa/' },
+  { image: '/images/gallery/work4.png', url: 'https://www.instagram.com/p/DMGq6YrRv5J/' },
+  { image: '/images/gallery/work5.png', url: 'https://www.instagram.com/p/DM_TNKjxEdp/' },
+  { image: '/images/gallery/work6.png', url: 'https://www.instagram.com/p/DMi-DwcxvIc/' },
+  { image: '/images/gallery/work7.png', url: 'https://www.instagram.com/p/DMOZJQ8xBre/' },
+  { image: '/images/gallery/work8.png', url: 'https://www.instagram.com/p/DL8VpBpR5TV/?img_index=1' },
 ];
 ---
 
 <section class="py-24 bg-brand-black">
   <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 uppercase tracking-wider">
-      Our Work
+    <h2 class="text-3xl md:text-5xl font-black text-center mb-16 uppercase tracking-wider text-brand-accent">
+      our work
     </h2>
 
-    {works.length > 0 ? (
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {works.map((work) => (
-          <a
-            href={work.url}
-            target="_blank"
-            rel="noopener"
-            class="group relative aspect-square overflow-hidden rounded-lg"
-          >
-            <img
-              src={work.image}
-              alt={work.title}
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            />
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors flex items-center justify-center">
-              <span class="text-white opacity-0 group-hover:opacity-100 transition-opacity font-medium">
-                {work.title}
-              </span>
-            </div>
-          </a>
-        ))}
-      </div>
-    ) : (
-      <p class="text-center text-brand-gray">Portfolio por agregar</p>
-    )}
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {works.map((work) => (
+        <a
+          href={work.url}
+          target="_blank"
+          rel="noopener"
+          class="group relative aspect-[3/4] overflow-hidden rounded-lg"
+        >
+          <img
+            src={work.image}
+            alt="Instagram post"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors"></div>
+        </a>
+      ))}
+    </div>
   </div>
 </section>

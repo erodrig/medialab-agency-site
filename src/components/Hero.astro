@@ -1,22 +1,103 @@
 ---
+const slides = [
+  '/images/hero/slide1.png',
+  '/images/hero/slide2.png',
+  '/images/hero/slide3.png',
+  '/images/hero/slide4.png',
+  '/images/hero/slide5.png',
+  '/images/hero/slide6.png',
+];
 ---
 
-<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-  <!-- Background gradient placeholder — replace with actual hero image -->
-  <div class="absolute inset-0 bg-gradient-to-br from-brand-black via-brand-dark to-brand-black"></div>
-
-  <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-    <h1 class="text-6xl md:text-8xl font-black tracking-tight mb-6">
-      MEDIALAB
-    </h1>
-    <p class="text-xl md:text-2xl text-brand-gray font-light max-w-2xl mx-auto mb-10">
-      Agencia de influencer marketing con presencia en Latinoamerica
-    </p>
-    <a
-      href="#contacto"
-      class="inline-block bg-brand-accent text-white px-8 py-4 text-sm font-semibold uppercase tracking-wider rounded hover:bg-red-700 transition-colors"
+<!-- Hero with video -->
+<section class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-brand-black">
+  <div class="absolute inset-0">
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      class="w-full h-full object-cover opacity-60"
     >
-      Empieza tu campana
-    </a>
+      <source src="/images/hero/hero-video.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-black/40"></div>
+  </div>
+
+  <div class="relative z-10 text-center px-6">
+    <img
+      src="/images/logo/ml-logo.png"
+      alt="Media Lab Agency"
+      class="mx-auto w-[300px] md:w-[500px] mb-8"
+    />
   </div>
 </section>
+
+<!-- Estrategia carousel section -->
+<section class="relative overflow-hidden bg-brand-black" style="background-image: url('/images/hero/fondo.png'); background-size: cover; background-position: center;">
+  <div class="relative z-10">
+    <!-- Carousel -->
+    <div class="carousel relative w-full" style="min-height: 80vh;">
+      {slides.map((slide, i) => (
+        <div
+          class:list={['carousel-slide absolute inset-0 transition-opacity duration-700', i === 0 ? 'opacity-100' : 'opacity-0']}
+          data-index={i}
+        >
+          <img
+            src={slide}
+            alt={`Slide ${i + 1}`}
+            class="w-full h-full object-contain"
+          />
+        </div>
+      ))}
+
+      <!-- WE LOVE CREATORS badge -->
+      <div class="absolute top-8 left-1/2 -translate-x-1/2 md:top-12 md:left-[30%] z-20">
+        <div class="relative">
+          <div class="w-24 h-24 md:w-32 md:h-32 bg-[#e63946] rounded-full flex flex-col items-center justify-center text-white font-black transform -rotate-12 shadow-lg" style="border: 3px dashed rgba(255,255,255,0.4);">
+            <span class="text-[10px] md:text-xs uppercase">we</span>
+            <span class="text-lg md:text-2xl uppercase leading-none" style="color: #ffd700;">Love</span>
+            <span class="text-[10px] md:text-xs uppercase">Creators</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nav arrows -->
+      <button class="carousel-prev absolute left-4 top-1/2 -translate-y-1/2 z-20 text-white text-4xl hover:text-brand-accent transition-colors" aria-label="Previous slide">
+        &#8249;
+      </button>
+      <button class="carousel-next absolute right-4 top-1/2 -translate-y-1/2 z-20 text-white text-4xl hover:text-brand-accent transition-colors" aria-label="Next slide">
+        &#8250;
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+  const slides = document.querySelectorAll('.carousel-slide');
+  const prevBtn = document.querySelector('.carousel-prev');
+  const nextBtn = document.querySelector('.carousel-next');
+  let current = 0;
+  const total = slides.length;
+
+  function showSlide(index: number) {
+    slides.forEach((s, i) => {
+      (s as HTMLElement).classList.toggle('opacity-100', i === index);
+      (s as HTMLElement).classList.toggle('opacity-0', i !== index);
+    });
+    current = index;
+  }
+
+  prevBtn?.addEventListener('click', () => {
+    showSlide((current - 1 + total) % total);
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    showSlide((current + 1) % total);
+  });
+
+  // Auto-advance every 5 seconds
+  setInterval(() => {
+    showSlide((current + 1) % total);
+  }, 5000);
+</script>
