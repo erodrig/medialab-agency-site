@@ -2,53 +2,55 @@
 const apiUrl = import.meta.env.PUBLIC_CONTACT_API_URL || '';
 ---
 
-<section id="contacto" class="py-24 bg-brand-black">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="flex flex-col md:flex-row gap-12 items-center">
+<section id="contacto" class="relative py-24 bg-brand-black" style="background-image: url('/images/hero/fondo.png'); background-size: cover; background-position: center;">
+  <div class="relative z-10 max-w-6xl mx-auto px-6">
+    <div class="flex flex-col items-center">
       <!-- Contact Form -->
-      <div class="flex-1 w-full">
-        <form id="contact-form" class="space-y-4">
+      <div class="w-full max-w-2xl">
+        <form id="contact-form" class="space-y-8">
           <div>
-            <label class="block text-xs font-medium uppercase tracking-wider mb-1">Nombre *</label>
+            <label class="block text-sm font-bold uppercase tracking-wider mb-3 text-white">Nombre *</label>
             <input
               type="text"
               name="name"
               required
-              class="w-full bg-brand-dark border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-brand-accent transition-colors"
+              class="w-full bg-transparent border-0 border-b border-white/60 px-0 py-2 text-white focus:outline-none focus:border-white transition-colors"
             />
           </div>
           <div>
-            <label class="block text-xs font-medium uppercase tracking-wider mb-1">E-mail *</label>
+            <label class="block text-sm font-bold uppercase tracking-wider mb-3 text-white">E-mail *</label>
             <input
               type="email"
               name="email"
               required
-              class="w-full bg-brand-dark border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-brand-accent transition-colors"
+              class="w-full bg-transparent border-0 border-b border-white/60 px-0 py-2 text-white focus:outline-none focus:border-white transition-colors"
             />
           </div>
           <div>
-            <label class="block text-xs font-medium uppercase tracking-wider mb-1">Mensaje *</label>
+            <label class="block text-sm font-bold uppercase tracking-wider mb-3 text-white">Mensaje *</label>
             <textarea
               name="message"
-              rows="4"
+              rows="3"
               required
-              class="w-full bg-brand-dark border border-gray-700 rounded px-4 py-3 text-white focus:outline-none focus:border-brand-accent transition-colors resize-none"
+              class="w-full bg-transparent border-0 border-b border-white/60 px-0 py-2 text-white focus:outline-none focus:border-white transition-colors resize-none"
             ></textarea>
           </div>
-          <button
-            type="submit"
-            class="bg-brand-accent text-white px-8 py-3 text-sm font-semibold uppercase tracking-wider rounded hover:bg-red-700 transition-colors"
-          >
-            Enviar
-          </button>
+          <div class="text-center">
+            <button
+              type="submit"
+              class="bg-brand-accent text-white px-12 py-3 text-sm font-bold uppercase tracking-wider rounded-full hover:bg-red-700 transition-colors"
+            >
+              Enviar
+            </button>
+          </div>
           <p id="form-status" class="text-center text-sm hidden"></p>
         </form>
       </div>
 
       <!-- CTA Heading -->
-      <div class="flex-1 text-center md:text-left">
-        <h2 class="text-3xl md:text-5xl font-black uppercase tracking-wider leading-tight text-brand-accent">
-          Empieza hoy mismo tu campana con influencers
+      <div class="w-full text-center mt-16">
+        <h2 class="text-4xl md:text-6xl font-black uppercase tracking-wider leading-tight">
+          <span class="text-brand-accent">Empieza hoy mismo</span> <span class="text-white">tu campaña con influencers</span>
         </h2>
       </div>
     </div>

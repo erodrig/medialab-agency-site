@@ -33,6 +33,14 @@ const slides = [
   </div>
 </section>
 
+<!-- WE LOVE CREATORS marquee -->
+<div class="bg-brand-black overflow-hidden py-3">
+  <div class="we-love-marquee flex whitespace-nowrap text-white">
+    <span class="marquee-text text-2xl md:text-4xl font-black uppercase tracking-wider px-4">WE <span class="text-[#ffd700]">&hearts;</span> CREATORS&nbsp;&nbsp;&nbsp;WE <span class="text-[#ffd700]">&hearts;</span> CREATORS&nbsp;&nbsp;&nbsp;WE <span class="text-[#ffd700]">&hearts;</span> CREATORS&nbsp;&nbsp;&nbsp;WE <span class="text-[#ffd700]">&hearts;</span> CREATORS&nbsp;&nbsp;&nbsp;WE <span class="text-[#ffd700]">&hearts;</span> CREATORS&nbsp;&nbsp;&nbsp;WE <span class="text-[#ffd700]">&hearts;</span> CREATORS&nbsp;&nbsp;&nbsp;</span>
+    <span class="marquee-text text-2xl md:text-4xl font-black uppercase tracking-wider px-4">WE <span class="text-[#ffd700]">&hearts;</span> CREATORS&nbsp;&nbsp;&nbsp;WE <span class="text-[#ffd700]">&hearts;</span> CREATORS&nbsp;&nbsp;&nbsp;WE <span class="text-[#ffd700]">&hearts;</span> CREATORS&nbsp;&nbsp;&nbsp;WE <span class="text-[#ffd700]">&hearts;</span> CREATORS&nbsp;&nbsp;&nbsp;WE <span class="text-[#ffd700]">&hearts;</span> CREATORS&nbsp;&nbsp;&nbsp;WE <span class="text-[#ffd700]">&hearts;</span> CREATORS&nbsp;&nbsp;&nbsp;</span>
+  </div>
+</div>
+
 <!-- Estrategia carousel section -->
 <section class="relative overflow-hidden bg-brand-black" style="background-image: url('/images/hero/fondo.png'); background-size: cover; background-position: center;">
   <div class="relative z-10">
@@ -50,17 +58,6 @@ const slides = [
           />
         </div>
       ))}
-
-      <!-- WE LOVE CREATORS badge -->
-      <div class="absolute top-8 left-1/2 -translate-x-1/2 md:top-12 md:left-[30%] z-20">
-        <div class="relative">
-          <div class="w-24 h-24 md:w-32 md:h-32 bg-[#e63946] rounded-full flex flex-col items-center justify-center text-white font-black transform -rotate-12 shadow-lg" style="border: 3px dashed rgba(255,255,255,0.4);">
-            <span class="text-[10px] md:text-xs uppercase">we</span>
-            <span class="text-lg md:text-2xl uppercase leading-none" style="color: #ffd700;">Love</span>
-            <span class="text-[10px] md:text-xs uppercase">Creators</span>
-          </div>
-        </div>
-      </div>
 
       <!-- Nav arrows -->
       <button class="carousel-prev absolute left-4 top-1/2 -translate-y-1/2 z-20 text-white text-4xl hover:text-brand-accent transition-colors" aria-label="Previous slide">
@@ -101,3 +98,18 @@ const slides = [
     showSlide((current + 1) % total);
   }, 5000);
 </script>
+
+<style>
+  .we-love-marquee {
+    animation: we-love-scroll 15s linear infinite;
+  }
+
+  @keyframes we-love-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+</style>

@@ -1,28 +1,33 @@
 ---
 const locations = [
-  { city: 'Ciudad de México, México', address: 'Salamanca 34, Planta Baja. Roma Norte' },
-  { city: 'Santiago, Chile', address: 'Triana 857, Of 13. Providencia' },
-  { city: 'Buenos Aires, Argentina', address: 'Fondo de la Legua 936, Piso 2. San Isidro' },
-  { city: 'Bogotá, Colombia', address: 'Carrera 112F #80-59, Bogotá DC' },
-  { city: 'Montevideo, Uruguay', address: 'Esteban Elena 6405 Oficina 6' },
-  { city: 'Lima, Perú', address: 'Calle Monte Rosa Nº 255 Oficina 601' },
-  { city: 'Quito, Ecuador', address: 'Avenida Francisco de Orellana E2-30' },
+  { city: 'Ciudad de México, México', address: 'Salamanca 34, Planta Baja. Roma Norte', color: '#f97316' },
+  { city: 'Santiago, Chile', address: 'Triana 857, Of 13. Providencia', color: '#a3e635' },
+  { city: 'Buenos Aires, Argentina', address: 'Fondo de la Legua 936, Piso 2. San Isidro', color: '#2dd4bf' },
+  { city: 'Bogotá, Colombia', address: 'Carrera 112F #80-59, Bogotá DC', color: '#f9a8d4' },
+  { city: 'Montevideo, Uruguay', address: 'Esteban Elena 6405 Oficina 6', color: '#ffffff' },
+  { city: 'Lima, Perú', address: 'Calle Monte Rosa Nº 255 Oficina 601', color: '#60a5fa' },
+  { city: 'Quito, Ecuador', address: 'Avenida Francisco de Orellana E2-30', color: '#c084fc' },
 ];
 ---
 
-<section class="py-24 bg-white text-black">
+<section class="py-24 bg-brand-black">
   <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-2xl md:text-3xl font-bold text-center mb-16 uppercase tracking-wider text-brand-accent">
+    <h2 class="text-4xl md:text-6xl font-black text-center mb-16 uppercase tracking-wider text-brand-accent italic">
       con presencia en
     </h2>
 
     <div class="flex flex-col md:flex-row gap-12 items-start">
       <!-- Locations list -->
-      <div class="flex-1 space-y-6">
+      <div class="flex-1 space-y-5">
         {locations.map((loc) => (
-          <div>
-            <h5 class="text-sm font-bold uppercase tracking-wider">{loc.city}</h5>
-            <p class="text-xs text-gray-600 uppercase tracking-wider mt-1">{loc.address}</p>
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-6 flex-shrink-0 mt-0.5" viewBox="0 0 24 32" fill={loc.color}>
+              <path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 20 12 20s12-11 12-20C24 5.4 18.6 0 12 0zm0 16c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z"/>
+            </svg>
+            <div>
+              <h5 class="text-sm font-bold uppercase tracking-wider text-white">{loc.city}</h5>
+              <p class="text-xs text-gray-400 uppercase tracking-wider mt-0.5">{loc.address}</p>
+            </div>
           </div>
         ))}
       </div>
